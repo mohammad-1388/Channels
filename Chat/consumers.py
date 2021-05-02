@@ -4,10 +4,12 @@ import json
 
 class ChatConsumer(WebsocketConsumer):
     """
-        
+        This Consumer for Chat Model
     """
     def connect(self):
+        self.room_name = self.scope['url_route']['kwargs']['room_name']
         self.accept()
+
 
     def disconnect(self, code):
         pass
