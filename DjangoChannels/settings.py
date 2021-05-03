@@ -72,14 +72,14 @@ TEMPLATES = [
 # WSGI_APPLICATION = 'DjangoChannels.wsgi.application'
 ASGI_APPLICATION = 'DjangoChannels.asgi.application'
 
-# CHANNEL_LAYERS = {
-#     'default': {
-#         'BACKEND': 'channels_redis.core.RedisChannelLayer',
-#         'CONFIG': {
-#             "hosts": [('localhost', 6379)],
-#         },
-#     },
-# }
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('localhost', 6379)],
+        },
+    },
+}
 
 
 # Database
