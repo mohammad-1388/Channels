@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import channels_redis
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '5+x6du+qiwe-bupb+u)adqswn)z%gm((43bqe=5lof8uj209zz'
+SECRET_KEY = '#mqg(&6^#o3e-=a$sn2t4zme6mi@o5%+5bpf#paqaq(74^&@0x'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -39,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Chat',
     'channels'
-    ]
+]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -72,11 +73,12 @@ TEMPLATES = [
 # WSGI_APPLICATION = 'DjangoChannels.wsgi.application'
 ASGI_APPLICATION = 'DjangoChannels.asgi.application'
 
+
 CHANNEL_LAYERS = {
     'default': {
-        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'BACKEND': channels_redis.core.RedisChannelLayer,
         'CONFIG': {
-            "hosts": [('localhost', 6379)],
+            "hosts": [('127.0.0.1', 6379)],
         },
     },
 }
